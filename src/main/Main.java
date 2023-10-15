@@ -3,6 +3,7 @@ package main;
 import database.Database;
 import factory.ConfectionaryFactory;
 import model.Confectionary;
+import model.ConfectionaryBuilder;
 
 import java.util.Scanner;
 
@@ -30,8 +31,10 @@ public class Main{
         String topping1 = null;
         String topping2 = null;
         String topping3 = null;
-        Float price;
+        Double price;
         String payment;
+
+        ConfectionaryBuilder confectionaryBuilder = new ConfectionaryBuilder();
 
         // get type
         while(true){
@@ -39,7 +42,7 @@ public class Main{
             System.out.printf("Input confectionary type [Cupcake | Tart] [case sensitive]: ");
             type = scanner.nextLine();
             if(type.equals("Cupcake") || type.equals("Tart"))
-                break;
+                confectionaryBuilder.setType(type); break;
 
         }
         // get name
@@ -48,7 +51,7 @@ public class Main{
             System.out.printf("Input confectionary name [length between 5 - 15]: ");
             name = scanner.nextLine();
             if(name.length() >= 5 && name.length() <= 15)
-                break;
+                confectionaryBuilder.setName(name); break;
 
         }
         // get softness
@@ -57,7 +60,7 @@ public class Main{
             System.out.printf("Input confectionary softness [Fluffy | Medium | Hard] [case sensitive]: ");
             softness = scanner.nextLine();
             if(softness.equals("Fluffy") || softness.equals("Medium") || softness.equals("Hard"))
-                break;
+                confectionaryBuilder.setSoftness(softness); break;
 
         }
         // get topping
@@ -65,8 +68,10 @@ public class Main{
 
             System.out.printf("Adding additional topping [Y | N] [case sensitive] ");
             isUseTopping = scanner.nextLine();
+            confectionaryBuilder.setIsUseTopping(isUseTopping);
             if(isUseTopping.equals("Y")){
 
+                confectionaryBuilder.setIsUseTopping(isUseTopping);
                 // get topping 1, 2, 3
                 while(true){
 
@@ -76,7 +81,7 @@ public class Main{
 
                     }
                     else
-                        break;
+                        confectionaryBuilder.setTopping1(topping1); break;
 
                 }
 
@@ -88,7 +93,7 @@ public class Main{
 
                     }
                     else
-                        break;
+                        confectionaryBuilder.setTopping2(topping2); break;
 
                 }
 
@@ -100,7 +105,7 @@ public class Main{
 
                     }
                     else
-                        break;
+                        confectionaryBuilder.setTopping3(topping3); break;
 
                 }
 
@@ -119,9 +124,9 @@ public class Main{
         while(true){
 
             System.out.printf("Input confectionary price [10.0 - 50.0]: ");
-            price = Float.valueOf(scanner.nextLine());
+            price = Double.valueOf(scanner.nextLine());
             if(price >= 10.0 || price <= 50.0)
-                break;
+                confectionaryBuilder.setPrice(price); break;
 
         }
         // get payment type
@@ -130,17 +135,21 @@ public class Main{
             System.out.printf("What kind of payment [Cash | Transfer | Crypto] [case sensitive]: ");
             payment = scanner.nextLine();
             if(payment.equals("Cash") || payment.equals("Transfer") || payment.equals("Crypto"))
-                break;
+                confectionaryBuilder.setPayment(payment); break;
 
         }
 
         // setup db & factory
         Database db = Database.getInstance(); // get db instance, singleton
-        ConfectionaryFactory confectionaryFactory = new ConfectionaryFactory(); // setup factory
+        // ConfectionaryFactory confectionaryFactory = new ConfectionaryFactory(); // setup factory
 
-        // add confectionary with a new factory .createConfectionary()
+        /*// add confectionary with a new factory .createConfectionary()
         db.addConfectionary(confectionaryFactory.createConfectionary(type, name, softness,  isUseTopping, topping1,
-                topping2, topping3, price, payment));
+                topping2, topping3, price, payment));*/
+
+        // call builder
+        db.addConfectionary(confectionaryBuilder.makeConfectionary());
+        // by using a builder, we can customize our COnfectionary and wrap it all up using .makeConfectionary()
 
         System.out.println("Press enter to continue");
         scanner.nextLine();
