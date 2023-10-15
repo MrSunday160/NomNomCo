@@ -166,6 +166,13 @@ public class Main{
                 System.out.println("Softness: " + confectionary.getSoftness());
                 if(confectionary.getTopping1() == null)
                     System.out.println("Topping: -");
+                else{
+
+                    System.out.println("Topping 1: " + confectionary.getTopping1());
+                    System.out.println("Topping 2: " + confectionary.getTopping2());
+                    System.out.println("Topping 3: " + confectionary.getTopping3());
+
+                }
                 System.out.println("PaymentType: " + confectionary.getPayment().getType());
                 System.out.printf("Price: " );
                 confectionary.getPayment().pay();
