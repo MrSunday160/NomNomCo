@@ -5,7 +5,8 @@ import payment.Price;
 
 public class PriceToCash extends Cash{
 
-    // essentially, when object is created, we're extending Cash class, meaning this class is a Cash type
+    // essentially, when object is created, we're extending Cash class, meaning this class is a PriceToCash, but acts
+    // as a Cash
     private Price price;
 
     public PriceToCash(Price price, double value){
