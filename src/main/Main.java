@@ -41,8 +41,10 @@ public class Main{
 
             System.out.printf("Input confectionary type [Cupcake | Tart] [case sensitive]: ");
             type = scanner.nextLine();
-            if(type.equals("Cupcake") || type.equals("Tart"))
-                confectionaryBuilder.setType(type); break;
+            if(type.equals("Cupcake") || type.equals("Tart")){
+                confectionaryBuilder.setType(type);
+                break;
+            }
 
         }
         // get name
@@ -50,8 +52,10 @@ public class Main{
 
             System.out.printf("Input confectionary name [length between 5 - 15]: ");
             name = scanner.nextLine();
-            if(name.length() >= 5 && name.length() <= 15)
-                confectionaryBuilder.setName(name); break;
+            if(name.length() >= 5 && name.length() <= 15){
+                confectionaryBuilder.setName(name);
+                break;
+            }
 
         }
         // get softness
@@ -59,8 +63,10 @@ public class Main{
 
             System.out.printf("Input confectionary softness [Fluffy | Medium | Hard] [case sensitive]: ");
             softness = scanner.nextLine();
-            if(softness.equals("Fluffy") || softness.equals("Medium") || softness.equals("Hard"))
-                confectionaryBuilder.setSoftness(softness); break;
+            if(softness.equals("Fluffy") || softness.equals("Medium") || softness.equals("Hard")){
+                confectionaryBuilder.setSoftness(softness);
+                break;
+            }
 
         }
         // get topping
@@ -80,8 +86,10 @@ public class Main{
                     if(topping1.length() < 1 || topping1.length() > 10){
 
                     }
-                    else
-                        confectionaryBuilder.setTopping1(topping1); break;
+                    else{
+                        confectionaryBuilder.setTopping1(topping1);
+                        break;
+                    }
 
                 }
 
@@ -92,8 +100,10 @@ public class Main{
                     if(topping2.length() < 1 || topping2.length() > 10){
 
                     }
-                    else
-                        confectionaryBuilder.setTopping2(topping2); break;
+                    else{
+                        confectionaryBuilder.setTopping2(topping2);
+                        break;
+                    }
 
                 }
 
@@ -104,8 +114,10 @@ public class Main{
                     if(topping3.length() < 1 || topping3.length() > 10){
 
                     }
-                    else
-                        confectionaryBuilder.setTopping3(topping3); break;
+                    else{
+                        confectionaryBuilder.setTopping3(topping3);
+                        break;
+                    }
 
                 }
 
@@ -125,8 +137,10 @@ public class Main{
 
             System.out.printf("Input confectionary price [10.0 - 50.0]: ");
             price = Double.valueOf(scanner.nextLine());
-            if(price >= 10.0 || price <= 50.0)
-                confectionaryBuilder.setPrice(price); break;
+            if(price >= 10.0 || price <= 50.0){
+                confectionaryBuilder.setPrice(price);
+                break;
+            }
 
         }
         // get payment type
@@ -134,8 +148,10 @@ public class Main{
 
             System.out.printf("What kind of payment [Cash | Transfer | Crypto] [case sensitive]: ");
             payment = scanner.nextLine();
-            if(payment.equals("Cash") || payment.equals("Transfer") || payment.equals("Crypto"))
-                confectionaryBuilder.setPayment(payment); break;
+            if(payment.equals("Cash") || payment.equals("Transfer") || payment.equals("Crypto")){
+                confectionaryBuilder.setPayment(payment);
+                break;
+            }
 
         }
 
