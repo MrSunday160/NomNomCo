@@ -208,10 +208,9 @@ public class Main{
                 we use the adapter as its payment.
                 when we call confectionary.getPayment(), we're accessing the payment of Cupcake (from parent)
                 which returns a Payment object
-                this returned object is the adapter itself. Moreover, the adapters all implements Payment, which
-                means that Confectionary parent class can hold these adapters.
+                this returned object is the adapter itself. Moreover, the adapters all extends a Payment implemented Class such as Cash, which means that Confectionary parent class can hold these adapters.
                 when we call .pay(), we're basically calling (lets say) PriceToCash.pay() method, instead of the
-                Cash.pay() method, since we constructed Cupcake using PriceToPay.
+                Cash.pay() method. However, if we dont override the .Pay() inside PriceToCash, we can still call Cash's .pay().
                 In other words, the adapter is wearing a mask to identify themselves as the payment type,
                 in which they are also implementing Payment interface, which also is held inside Confectionary
 
