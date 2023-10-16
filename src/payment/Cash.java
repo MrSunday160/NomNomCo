@@ -14,7 +14,7 @@ public class Cash implements Payment{
 
     @Override
     public void pay(){
-        System.out.println("Paid with Cash: " + this.getValue());
+//        System.out.println("Paid with Cash: " + this.getValue());
     }
 
     @Override

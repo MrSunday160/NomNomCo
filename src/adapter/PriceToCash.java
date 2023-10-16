@@ -24,4 +24,5 @@ public class PriceToCash extends Cash{
     public void pay(){
         System.out.println("Paid with Cash: " + this.getValue());
     }
+
 }

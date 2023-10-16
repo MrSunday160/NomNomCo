@@ -199,8 +199,8 @@ public class Main{
 
                 }
                 System.out.println("PaymentType: " + confectionary.getPayment().getType());
-                System.out.printf("Price: " );
-                confectionary.getPayment().pay();
+                System.out.println("Price: " + confectionary.getPayment().getValue());
+//                confectionary.getPayment().pay();
                 /*
 
                 when we create the object, lets say new Cupcake(), we're passing the adapter as its payment
@@ -214,6 +214,15 @@ public class Main{
                 Cash.pay() method, since we constructed Cupcake using PriceToPay.
                 In other words, the adapter is wearing a mask to identify themselves as the payment type,
                 in which they are also implementing Payment interface, which also is held inside Confectionary
+
+                Since lets say, PriceToCash extends Cash, it means that it can access Cash's .getType()
+                Becasue PriceToCash isnt implementing Payment interface, it's not bound to implement the methods of
+                the interface, instead Cash is implementing Payment interface, causing it to be bound to implement
+                all methods inside Payment.
+                Thats why we cant access confectioanry.getPayment.getValue() (inside PriceToCash) since .getPayment()
+                 only returns Payment type.
+                 In other words, PriceToCash is not Payment, but Cash
+                 while Cash is payment, so to access .getValue(), we need Payment interface to hold .getValue()
 
                  */
 

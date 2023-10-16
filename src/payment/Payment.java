@@ -6,5 +6,7 @@ public interface Payment{
 
     public String getType();
 
+    public double getValue();
+
 
 }
